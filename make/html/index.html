@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../modal.css">
+    <script src="../module.js"></script>
+    <title>Notion Tools - 노션툴즈</title>
+</head>
+
+<body>
+    <div id="modal" onclick="$(this).removeClass(`modal_show`)">
+        <div class="modal_text">비밀번호가 틀린 것 같아요.</div>
+    </div>
+
+    <div class="divver">
+        <div id="embed">
+            <div class="input_line">
+                <textarea id="code" placeholder="HTML 코드를 입력하세요."></textarea>
+            </div>
+
+            <div class="input_line">
+                <div class="input_set"></div>
+                <input type="button" id="input_make"class="input_make" value="링크 생성하기" onclick="makeLink()">
+            </div>
+
+            <div class="output">
+                <input type="text" id="output_link" class="output_link" placeholder="" readonly>
+                <input type="button" value="복사하기" class="output_copy" onclick="linkCopy()">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const makeLink = () => {
+            const htmlCode = encodeURIComponent($("#code").val() + "nt");
+            const url = "https://lourcode.kr/notion-tools-embeds/block/html/?c=" + htmlCode;
+            $("#output_link").val(url);
+            make_embed(url)
+        }
+
+        const linkCopy = () => {
+            if ($("#output_link").val() == "") {
+                modal("링크를 먼저 생성해주세요.", "bad")
+            } else {
+                copylink()
+                modal("링크 복사 완료", "good")
+            }
+        }
+    </script>
+</body>
+
+</html>

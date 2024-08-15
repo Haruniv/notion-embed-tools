@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notion Tools - 노션툴즈</title>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            overflow-y: scroll;
+            -ms-overflow-style: none;
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+
+        .black {
+            background-color: #191919;
+        }
+
+        .white {
+            background-color: rgb(255, 255, 255);
+        }
+    </style>
+    <script src="../notion-tools-block-module.js"></script>
+</head>
+
+<body>
+    <div id="main">
+        <a id="link" href="https://lourcode.kr/notion-tools-embeds/embed/imglink" target="_top"><img id="img" src="img.png"
+                alt="노션툴즈 이미지 링크"></a>
+        <div style="display: none;">노션툴즈 이미지링크 배포</div>
+        <h1 style="display: none;">노션툴즈 이미지링크 배포</h1>
+    </div>
+
+    <script>
+        apply_theme()
+        const Imglink = decodeURIComponent(getParameterByName("i"))
+        const Hyperlink = decodeURIComponent(getParameterByName("l"))
+        if (Imglink && Hyperlink) {
+            $("#img").attr("src", Imglink);
+            $("#link").attr("href", Hyperlink);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://code.jquery.com/jquery-latest.min.js"></script>
+<script src="../notion-tools-block-module.js"></script>
+<title>노션툴즈 HTML블록</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+</style>
+</head>
+
+<body>
+<script>
+  let code = decodeURIComponent(getParameterByName("c"))
+  let root = document.getElementById("root")
+  if (code.slice(-2) == "nt") {
+    history.pushState(null,null,"index.html")
+    document.write(code.slice(0,-2))
+  } else {
+    document.write("링크를 다시 생성해주세요. <a href='https://lourcode.kr/notion-tools-embeds/embeds/html'>노션툴즈</a>")
+  }
+</script>
+</body>
+</html>
